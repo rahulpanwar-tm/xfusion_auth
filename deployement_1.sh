@@ -94,7 +94,9 @@ done
 
 
 
-Array2=($(mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS   -Bse "use versioning; call versioning.database_deployement_version_get_all('$APPLICATION','$ORGANIZATION','$PROD_IPADDRESS');"))
+#Array2=($(mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS   -Bse "use versioning; call versioning.database_deployement_version_get_all('$ORGANIZATION','$APPLICATION','$PROD_IPADDRESS');"))
+
+Array2=($(mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS   -Bse "select trim(script_name) from xfusion_config.version_status where project_name=$ORGANIZATION order by script_date;"))
 
 
 

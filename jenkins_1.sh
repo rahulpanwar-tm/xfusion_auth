@@ -26,4 +26,4 @@ echo "PRO_PASSWORD		:$PRO_PASSWORD"
 echo "GLOB_PASSWORD 	:$GLOB_PASSWORD"
 echo "PRO_PORT			:$PRO_PORT"
 echo "GLOB_PORT			:$GLOB_PORT"
-. ./deployement.sh
+. ./deployement_1.sh
