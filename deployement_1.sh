@@ -92,7 +92,8 @@ done
 #Array2=($(mysql -u$USERID --port $PORT  -p$PASSWORD -c -h $IPADDRESS   -Bse "use deployement_status; call deployement_status.database_deployement_version_get_all('Exicom','Xfusion_Platform');"))
 #echo ${Array2[@]}
 
-verisoning_table=mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e"SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='version_status' and TABLE_SCHEMA='xfusion_config';"
+verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='version_status' and TABLE_SCHEMA='xfusion_config';"))
+
 
 echo "$verisoning_table"
 
