@@ -97,7 +97,7 @@ verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h 
 
 echo "$verisoning_table"
 
-if [ "$verisoning_table" < 0]
+if [ "$verisoning_table" < "0"]
 then
   echo "$verisoning_table"
 
