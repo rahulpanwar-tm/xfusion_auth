@@ -14,7 +14,7 @@
 #echo "Hello, $PERSON"
 #declare -a Array50
 #Array50=( "key1" "key2" "key3" "key4" "key5" "key6" "key7" "key8" "key9" "key10" )
-
+cat /home/ttpl/.jenkins/workspace/xfusion_data_node/xfusion_data_node_2019-01-03.sql > "${array_node[m]}".sql
 echo "Deployement started for $APPLICATION under $ORGANIZATION"
 
 #declare -a Array1
@@ -103,7 +103,7 @@ if [ "$verisoning_table" -le 0 ]
 then
 
   #mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS xfusion_config.version_status;CREATE TABLE IF NOT EXISTS xfusion_config.version_status (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
-  mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS $versioning_db.$versioning_table;CREATE TABLE IF NOT EXISTS $versioning_db.$versioning_table (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+  mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS '$versioning_db'.'$versioning_table';CREATE TABLE IF NOT EXISTS '$versioning_db'.'$versioning_table' (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
   echo "$verisoning_table"
 
 fi
@@ -137,9 +137,9 @@ echo "Array 3(diffrence) " ${Array3[@]}
 echo "Diffrence in both array"
 
 ## now loop through the above array
-for i in "${Array3[@]}"
+for t in "${Array3[@]}"
 do
-   echo "$i"
+   echo "$t"
    # or do whatever with individual element of the array
 done
 
