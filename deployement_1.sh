@@ -156,7 +156,19 @@ do
    # or do whatever with individual element of the array
 done
 # ------------------------
-echo "${Array3[@]}"
+Array1=( "key1" "key2" "key3" "key4" "key5" "key6" "key7" "key8" "key9" "key10" )
+Array2=( "key1" "key2" "key3" "key4" "key5" "key6" )
+
+Array3=()
+for i in "${Array1[@]}"; do
+    skip=
+    for j in "${Array2[@]}"; do
+        [[ $i == $j ]] && { skip=1; break; }
+    done
+    [[ -n $skip ]] || Array3+=("$i")
+done
+declare -p Array3
+
 
 #runing code
 #results=($(mysql -udeveloper -padmin@123 -c -h 192.168.1.122 -Bse "show databases;"))
