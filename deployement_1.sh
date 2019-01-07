@@ -144,7 +144,7 @@ do
    # or do whatever with individual element of the array
 done
 
-echo "${Array3[@]}"
+
 # -----------------
 ## declare an array variable
 declare -a arr=(xfusion_auth_engine_2019-01-01.sql xfusion_auth_engine_2019-01-02.sql xfusion_auth_engine_2019-01-03.sql)
@@ -156,7 +156,7 @@ do
    # or do whatever with individual element of the array
 done
 # ------------------------
-
+echo "${Array3[@]}"
 
 #runing code
 #results=($(mysql -udeveloper -padmin@123 -c -h 192.168.1.122 -Bse "show databases;"))
