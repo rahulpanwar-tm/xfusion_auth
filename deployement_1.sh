@@ -119,7 +119,7 @@ Array2=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPAD
 
 
 
-
+declare -a  Array3
 Array3=()
 for i in "${Array1[@]}"; do
     skip=
@@ -128,7 +128,7 @@ for i in "${Array1[@]}"; do
     done
     [[ -n $skip ]] || Array3+=("$i")
 done
-declare -a  Array3
+
 
 echo "Array 1 " ${Array1[@]}
 echo "Array 2 " ${Array2[@]}
