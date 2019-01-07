@@ -146,10 +146,10 @@ done
 
 # -----------------
 ## declare an array variable
-#declare -a arr=("element1" "element2" "element3")
-echo "${Array3[@]}"
+declare -a arr=(xfusion_auth_engine_2019-01-01.sql xfusion_auth_engine_2019-01-02.sql xfusion_auth_engine_2019-01-03.sql)
+echo "${arr[@]}"
 ## now loop through the above array
-for i in "${Array3[@]}"
+for i in "${arr[@]}"
 do
    echo "$i"
    # or do whatever with individual element of the array
