@@ -101,7 +101,7 @@ echo "$verisoning_table"
 
 if [ "$verisoning_table" -le 0 ]
 then
-  echo 'Gello rahul'
+
   #mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS xfusion_config.version_status;CREATE TABLE IF NOT EXISTS xfusion_config.version_status (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
   mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS $versioning_db.$versioning_table;CREATE TABLE IF NOT EXISTS $versioning_db.$versioning_table (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
   echo "$verisoning_table"
@@ -111,7 +111,8 @@ fi
 #Array2=($(mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS   -Bse "use versioning; call versioning.database_deployement_version_get_all('$ORGANIZATION','$APPLICATION','$PROD_IPADDRESS');"))
 
 #Array2=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "select trim(script_name) from xfusion_config.version_status where project_name='$ORGANIZATION' and model_name='$APPLICATION' order by script_date;"))
-Array2=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "select trim(script_name) from '$versioning_db'.'$versioning_table' where project_name='$ORGANIZATION' and model_name='$APPLICATION' order by script_date;"))
+  echo 'Gello rahul'
+Array2=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "select trim(script_name) from $versioning_db.$versioning_table where project_name='$ORGANIZATION' and model_name='$APPLICATION' order by script_date;"))
 
 
 
