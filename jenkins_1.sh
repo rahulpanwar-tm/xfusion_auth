@@ -10,7 +10,7 @@ versioning_db=$7
 versioning_table=$8
 jenkins_path=$9
 
-#bash jenkins_1.sh 'Exicom' 'xfusion_auth_engine' '192.168.1.104' 'root' 'Ttpl@123' '3307' 'xfusion_config' 'version_status' '/home/ttpl/.jenkins/workspace/xfusion_data_node'
+#bash jenkins_1.sh 'Exicom' 'xfusion_auth_engine' '192.168.1.104' 'root' 'Ttpl@123' '3307' 'xfusion_config' 'version_status' '/home/ttpl/.jenkins/workspace/xfusion_auth_demo'
 
 # ORGANIZATION="Exicom"
 # APPLICATION="Xfusion_Platform"
