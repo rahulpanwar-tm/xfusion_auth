@@ -103,7 +103,7 @@ if [ "$verisoning_table" -le 0 ]
 then
   echo 'Gello rahul'
   #mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS xfusion_config.version_status;CREATE TABLE IF NOT EXISTS xfusion_config.version_status (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
-  mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS $versioning_db.$versioning_table;CREATE TABLE IF NOT EXISTS $versioning_db.$versioning_table' (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+  mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS $versioning_db.$versioning_table;CREATE TABLE IF NOT EXISTS $versioning_db.$versioning_table (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
   echo "$verisoning_table"
 
 fi
