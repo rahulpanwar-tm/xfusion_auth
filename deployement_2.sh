@@ -18,7 +18,7 @@
 echo "Deployement started for $APPLICATION under $ORGANIZATION"
 
 #declare -a Array1
-for filename in ./*.sql; do
+for filename in $jenkins_path/*.sql; do
 #   echo  "$(basename "$filename")"
 #    Array50=$(basename "$filename")
 #    Array1=("${Arry50[@]}" "$filename")
@@ -155,7 +155,7 @@ echo "print diffrent version "
 for i in "${Array3[@]}"
 do
    #echo  "mysql -udeveloper -padmin@123 -c -h 192.168.1.122 -Bse $i" 
-   mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "source $i;"
+   mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "source $jenkins_path/$i;"
    mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "INSERT INTO xfusion_config.version_status (project_name,model_name, script_name, installation_date, script_date) VALUES ('$ORGANIZATION','$APPLICATION','$i',UNIX_TIMESTAMP(NOW()),unix_timestamp(substring(substring('$i' FROM -14),1,10)));"
   # mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS -e "use versioning; call database_deployement_version_insert('$ORGANIZATION','$APPLICATION','$i');"
    # or do whatever with individual element of the array
