@@ -105,6 +105,7 @@ then
 
 fi
 
+
 #Array2=($(mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS   -Bse "use versioning; call versioning.database_deployement_version_get_all('$ORGANIZATION','$APPLICATION','$PROD_IPADDRESS');"))
 
 Array2=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "select trim(script_name) from '$versioning_table'.'$versioning_table'  where project_name='$ORGANIZATION' and model_name='$APPLICATION' order by script_date;"))
