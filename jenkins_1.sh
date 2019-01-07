@@ -29,7 +29,7 @@ echo "versioning_table	:$versioning_table"
 echo "jenkins_path		:$jenkins_path"
 
 
-. ./deployement_2.sh
+. ./deployement_1.sh
 
 
 # bash jenkins_1.sh 'Exicom' 'Xfusion_auth' '192.168.1.75' 'root' 'Ttpl@123' '3307'
