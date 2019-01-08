@@ -97,13 +97,13 @@ verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h 
 
 echo "$verisoning_table"
 
-if [ "$verisoning_table" -le 0 ]
-then
+#if [ "$verisoning_table" -le 0 ]
+#then
 
-  mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS $versioning_db.$versioning_table;CREATE TABLE IF NOT EXISTS $versioning_db.$versioning_table (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
-  echo "$verisoning_table"
+#  mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "DROP TABLE IF EXISTS $versioning_db.$versioning_table;CREATE TABLE IF NOT EXISTS $versioning_db.$versioning_table (id int(11) NOT NULL AUTO_INCREMENT,project_name varchar(50) DEFAULT NULL,model_name varchar(50) DEFAULT NULL,script_name varchar(50) DEFAULT NULL,installation_date int(11) DEFAULT NULL,script_date int(11) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+#  echo "$verisoning_table"
 
-fi
+# fi
 
 
 #Array2=($(mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS   -Bse "use versioning; call versioning.database_deployement_version_get_all('$ORGANIZATION','$APPLICATION','$PROD_IPADDRESS');"))
@@ -134,11 +134,11 @@ echo "Array 3(diffrence) " ${Array3[@]}
 echo "Diffrence in both array"
 
 ## now loop through the above array
-#for i in "${Array3[@]}"
-#do
-#   echo "$i"
+for i in "${Array3[@]}"
+do
+   echo "$i"
    # or do whatever with individual element of the array
-#done
+done
 
 
 #runing code
@@ -157,6 +157,7 @@ for i in "${Array3[@]}"
 do
    #echo  "mysql -udeveloper -padmin@123 -c -h 192.168.1.122 -Bse $i" 
    mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "source $jenkins_path/$i;"
+  
    if [ "$verisoning_table" -le 0 ]
 then
 
