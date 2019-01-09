@@ -18,23 +18,16 @@
 echo "Deployement started for $APPLICATION under $ORGANIZATION"
 
 #declare -a Array1
-for filename in $jenkins_path/*.sql; do
-#   echo  "$(basename "$filename")"
-#    Array50=$(basename "$filename")
-#    Array1=("${Arry50[@]}" "$filename")
-#file_basename= "$(basename "$filename")" 
-
+if [ "${array_pro[1]}" == "xfusion_performance_data" ]
+then
+for filename in $jenkins_path/xfusion_performance_data_node_*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
-
-#temp_file="${filename##*/}"
-
-#echo "${temp_file%.*}"
-#Array1=${Array1[@]} "${temp_file%.*}"
-
-#Array1+=(basename"$filename")
-#Array1=("${Array1[@]}" "$filename")
-
 done
+else
+for filename in $jenkins_path/*.sql; do
+Array1=("${Array1[@]}" "$(basename "$filename")")
+done
+fi
 
 #echo "$items"
 
