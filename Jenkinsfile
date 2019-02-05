@@ -27,7 +27,7 @@ pipeline {
             mail(subject: 'Hello Rahul', body: 'PFA', from: 'xfusiondonotreply@gmail.com', to: 'rahul.panwar@teramatrix.in')
           }
         }
-        stage('test') {
+        stage('Delete Workspace') {
           steps {
             cleanWs(cleanWhenSuccess: true, notFailBuild: true, skipWhenFailed: true)
           }
