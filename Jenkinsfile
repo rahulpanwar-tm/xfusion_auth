@@ -22,7 +22,7 @@ pipeline {
     }
     stage('message print') {
       parallel {
-        stage('message print') {
+        stage('mail sender') {
           steps {
             mail(subject: 'Hello Rahul', body: 'PFA', from: 'xfusiondonotreply@gmail.com', to: 'rahul.panwar@teramatrix.in')
           }
@@ -30,6 +30,11 @@ pipeline {
         stage('Delete Workspace') {
           steps {
             cleanWs(cleanWhenSuccess: true, notFailBuild: true, skipWhenFailed: true)
+          }
+        }
+        stage('') {
+          steps {
+            fileExists 'deployement.sh'
           }
         }
       }
