@@ -21,8 +21,17 @@ pipeline {
       }
     }
     stage('message print') {
-      steps {
-        mail(subject: 'Hello Rahul', body: 'PFA', from: 'xfusiondonotreply@gmail.com', to: 'rahul.panwar@teramatrix.in')
+      parallel {
+        stage('message print') {
+          steps {
+            mail(subject: 'Hello Rahul', body: 'PFA', from: 'xfusiondonotreply@gmail.com', to: 'rahul.panwar@teramatrix.in')
+          }
+        }
+        stage('test') {
+          steps {
+            cleanWs(cleanWhenSuccess: true, notFailBuild: true, skipWhenFailed: true)
+          }
+        }
       }
     }
   }
