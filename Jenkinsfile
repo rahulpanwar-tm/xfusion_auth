@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Ping to server') {
           steps {
-            sh 'echo "Ping to a server"'
+            sh 'ping 192.168.1.55'
           }
         }
       }
