@@ -32,9 +32,14 @@ pipeline {
             cleanWs(cleanWhenSuccess: true, notFailBuild: true, skipWhenFailed: true)
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             fileExists 'deployement.sh'
+          }
+        }
+        stage('cdxcvdcdx') {
+          steps {
+            build(propagate: true, wait: true, quietPeriod: 1, job: 'master_job')
           }
         }
       }
