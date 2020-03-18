@@ -17,7 +17,6 @@ delete_ary_elmt() {
 
 delete_ary_elmt "no_database" arr
 
-
 ## now loop through the above array
 for i in "${arr[@]}"
 do
