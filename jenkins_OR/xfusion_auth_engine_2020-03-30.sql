@@ -1,1 +1,0 @@
-select * from firmware_schedule_upload23;
